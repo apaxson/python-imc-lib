@@ -54,6 +54,8 @@ class TestIMCConnection(unittest.TestCase):
         self.assertEqual(len(deviceListing),6)
         self.assertEqual(deviceListing[0]['id'],'6')
         self.assertEqual(deviceListing[5]['id'],'1014')
+        self.assertEqual(len(device),1)
+        self.assertEqual(device[0]['id'],'562')
 
     if __name__ == '__main__':
         unittest.main()

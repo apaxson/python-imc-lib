@@ -14,6 +14,37 @@
 # You should have received a copy of the GNU General Public License
 # along with this software.  If not, see <http://www.gnu.org/licenses/>.
 
+"""
+This module is a library for HP Intelligent Management Center functions.  It is meant to be used as an
+import and then called on.
+
+     from net.myteneo.imc.lib.IMCPlat import IMCConnection
+
+     my_imc = IMCConnection(hostname,port,username,password)
+
+At this point, you should load IMCConnection() with your IMC Master hostname, user/password, etc.  You get data
+by calling the get() method with the url.
+
+     data = my_imc.get('/plat/res/device?sysName=hostname')
+
+'data' should then be an XML-based response which you can parse.
+
+     devices = IMCConnection.parseDeviceListing(data.read())
+
+To find out how many devices were returned:
+
+     count = len(devices)
+
+To access the 'ip' attribute of the first device (or only device if 1 result):
+
+     ip_addr = devices[0]['ip']
+
+To list all attributes of the first device:
+
+     print devices[0].getKeys()
+
+"""
+
 import urllib
 import urllib2
 import xml.etree.ElementTree as ET

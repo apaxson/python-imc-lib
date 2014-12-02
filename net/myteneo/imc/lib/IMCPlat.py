@@ -22,10 +22,16 @@ import and then called on.
 
      my_imc = IMCConnection(hostname,port,username,password)
 
+This class is meant to be instantiable.  This means, you could access more than one IMC Server with different
+results:
+
+     imc2 = IMCConnection(host2,port,user,pass)
+
 At this point, you should load IMCConnection() with your IMC Master hostname, user/password, etc.  You get data
 by calling the get() method with the url.
 
      data = my_imc.get('/plat/res/device?sysName=hostname')
+     data2 = imc2.get('/plat/res/device?ip=10.10.10.10')
 
 'data' should then be an XML-based response which you can parse.
 

@@ -1,4 +1,5 @@
 # (c) 2014, Aaron Paxson <aj@thepaxson5.org>
+# http://www.myteneo.net
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -85,4 +86,29 @@ class IMCConnection(object):
             self.count = self.count+1
         return self.count
 
+class Device(object):
 
+    def __init__(self,attribs=None):
+        self.attribs = {}
+
+    def loadAttributesDict(self,dict):
+        """
+        :param dict of values.  Replaces current attributes.
+        :return: None
+        """
+        self.attribs = dict
+
+    def getAttribute(self,attrib):
+        if self.attribs.has_key(attrib):
+            return self.attribs.get(attrib)
+        else:
+            return None
+
+    def setAttribute(self,attrib,value):
+        self.attribs[attrib] = value
+
+class Interface(object):
+
+    def __init__(self,device=None,attribs=None):
+        self.device = device
+        self.attribs = dict(attribs)

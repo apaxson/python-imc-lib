@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # (c) 2014, Aaron Paxson <aj@thepaxson5.org>
+# http://www.myteneo.net
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,7 +16,7 @@
 # along with this software.  If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
-from net.myteneo.imc.lib.IMCConnection import IMCConnection
+from net.myteneo.imc.lib.IMCPlat import IMCConnection
 from net.myteneo.imc.test.test_xml_devData import IMCTestDeviceData
 
 class TestIMCConnection(unittest.TestCase):

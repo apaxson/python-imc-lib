@@ -67,23 +67,23 @@ class IMCConnection(object):
         data_encoded = urllib.urlencode(data)
         return urllib2.urlopen(url,data_encoded).read()
 
-    def isList(self,xmldata):
+    def isListXML(self,xmldata):
         root = ET.fromstring(xmldata)
         if root.tag == "list":
             return True
         return False
 
-    def isDevice(self,xmldata):
+    def isDeviceXML(self,xmldata):
         root = ET.fromstring(xmldata)
         if root.tag == 'device':
             return True
         return False
 
-    def countDataList(self,xmldata):
+    def countDataListXML(self,xmldata):
         self.count = 0
         root = ET.fromstring(xmldata)
         for child in root:
-            self.count = self.count+1
+            self.count +=1
         return self.count
 
 class Device(object):
